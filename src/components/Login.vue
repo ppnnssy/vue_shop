@@ -44,16 +44,16 @@
 export default {
   data() {
     return {
-      loginForm: { username: "", password: "" },
+      loginForm: { username: '', password: '' },
       // 添加数据验证规则
       rules: {
         username: [
-          { required: true, message: "请输入用户名", trigger: "blur" },
-          { min: 1, max: 8, message: "长度在 3 到 5 个字符", trigger: "blur" },
+          { required: true, message: '请输入用户名', trigger: 'blur' },
+          { min: 1, max: 8, message: '长度在 3 到 5 个字符', trigger: 'blur' },
         ],
         password: [
-          { required: true, message: "请输入密码", trigger: "blur" },
-          { min: 6, max: 16, message: "长度在6到16个字符", trigger: "blur" },
+          { required: true, message: '请输入密码', trigger: 'blur' },
+          { min: 6, max: 16, message: '长度在6到16个字符', trigger: 'blur' },
         ],
       },
     };
@@ -76,17 +76,17 @@ export default {
         // 验证成功,发送登录请求。携带loginForm的参数。返回值是一个promise对象。
         // 使用await简化promise,简化后只剩下结果的对象，重点关注里面的data值
         // 使用结构化赋值，把data赋值给res
-        const { data: res } = await this.$http.post("login", this.loginForm);
-        console.log("登录结果是:", res);
-        if (res.meta.status !== 200) return this.$message.error("登录失败");
-        this.$message.success("登录成功");
+        const { data: res } = await this.$http.post('login', this.loginForm);
+        console.log('登录结果是:', res);
+        if (res.meta.status !== 200) return this.$message.error('登录失败');
+        this.$message.success('登录成功');
 
         // 登录成功后的处理
         // 1.将登陆成功后的token保存到客户端的sessionStorage中.token携带在res中
         console.log(res);
-        window.sessionStorage.setItem("token", res.data.token);
+        window.sessionStorage.setItem('token', res.data.token);
         // 2.通过编程式导航对象跳转到登录成功页面，路由地址是/home
-        this.$router.push("/home");
+        this.$router.push('/home');
       });
     },
   },

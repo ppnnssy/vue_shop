@@ -1,4 +1,5 @@
 import Vue from 'vue'
+// 已在public/index中导入vue-router，不能在这里重复导入了
 import Router from 'vue-router'
 import Login from '../components/Login.vue'
 import Home from '../components/Home.vue'
